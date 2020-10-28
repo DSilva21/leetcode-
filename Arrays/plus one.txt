@@ -1,0 +1,19 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+     
+        int n=digits.length;
+        for(int i=n-1;i>=0;i--){
+            if(digits[i]<9){ //마지막 digit만 체크 9보다 작으면 그냥 +1
+                digits[i]++;
+                return digits;
+            }
+            digits[i]=0; //i인덱스 값이 9라면 0으로 바꾼다 
+        }
+        
+        //모든 값이 9라면 모든값이 0으로 바뀐다. 즉 자릿수가 늘어야 하므로 배열의 크기를 1증가시키고 맨 앞자리는 1이어야할 것이다
+        int[] new_number=new int[n+1];
+        new_number[0]=1;
+        return new_number;
+
+   }
+}
