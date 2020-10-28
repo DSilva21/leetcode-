@@ -1,0 +1,47 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+       int chk=0;
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            chk=nums[i];
+            for(int j=i+1;j<nums.length;j++)
+            {
+                if(chk==nums[j])
+                  return true;  
+            }
+            
+        }
+        return false;        
+        
+    }
+} //나의 풀이
+
+public boolean containsDuplicate(int[] nums) {
+    for (int i = 0; i < nums.length; ++i) {
+        for (int j = 0; j < i; ++j) {
+            if (nums[j] == nums[i]) return true;  
+        }
+    }
+    return false;
+} // time limit exceeded  o(n)^2
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+    Arrays.sort(nums);
+    for (int i = 0; i < nums.length - 1; ++i) {
+        if (nums[i] == nums[i + 1]) return true;
+    }
+    return false;
+}
+}// sorting  o(nlogn)
+
+
+public boolean containsDuplicate(int[] nums) {
+    Set<Integer> set = new HashSet<>(nums.length);
+    for (int x: nums) {
+        if (set.contains(x)) return true;
+        set.add(x);
+    }
+    return false;
+} //hash table사용 o(n) 
