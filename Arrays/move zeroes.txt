@@ -1,0 +1,19 @@
+class Solution {
+    public void moveZeroes(int[] nums) {
+        
+        int nonzero=0;
+        int temp=0;
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i] !=0){
+                temp=nums[nonzero];
+                nums[nonzero]=nums[i];
+                nums[i]=temp;
+                nonzero++;
+            }
+           
+        }
+        
+    }
+} //포인터를 사용
