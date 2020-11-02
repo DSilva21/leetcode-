@@ -1,0 +1,28 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        String fixed_string="";
+        
+        for(char c:s.toCharArray())
+        {
+            if(Character.isDigit(c) || Character.isLetter(c)){
+                fixed_string+=c;  //alphanumeric으로 바꿔줌
+            }
+        }
+        
+            fixed_string=fixed_string.toLowerCase(); //소문자로
+            //두개의 포인터를 사용하여 검사
+            int a_p=0;
+            int b_p=fixed_string.length()-1;
+            
+            while(a_p<=b_p){
+                if(fixed_string.charAt(a_p)!=fixed_string.charAt(b_p)){
+                    return false;
+                }
+                
+                a_p++;
+                b_p--;
+            }
+            return true;
+        
+    }
+}
